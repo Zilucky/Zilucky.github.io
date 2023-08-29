@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Water Treatment Plant Security</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+
+    h2,
+    h2,
+    h3 {
+      color: #333;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 40px;
+    }
+
+    ol {
+      list-style: decimal;
+      padding-left: 40px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .navbar {
+      background-color: #1E90FF;
+      /* Change the background color to a shade of blue */
+      overflow: hidden;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      /* Add a subtle box shadow */
+    }
+
+    .navbar a {
+      float: left;
+      color: #ffffff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      transition: background-color 0.3s, color 0.3s;
+      /* Add smooth transition */
+    }
+
+    .navbar a:hover {
+      background-color: #6CA6CD;
+      /* Darken the background color on hover */
+      color: #ffffff;
+      /* Change the text color on hover */
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      flex-direction: column;
+      margin-top: 50px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown:hover>.dropdown-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-content-sub {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 40px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      margin-top: 10px;
+      margin-left: 170px;
+      flex-direction: column;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown-content li:hover>.dropdown-content-sub {
+      display: block;
+    }
+  </style>
+</head>
+
+<body background="../img/watercolor-4116932_1920.png">
+  <div class="navbar">
+    <div class="dropdown">
+      <a href="../index.html" class="dropbtn">Risk Models in Cybersecurity</a>
+      <ul class="dropdown-content">
+        <li><a href="../attack/Phishing Attack.html">Phishing</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/Ddos.html">DDos</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/vulnerability attack.html">Vulnerability attack</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/data breach.html">Data Leakage</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/unauthorized access.html">Unauthorised access</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/Escalation of rights.html">Privilege lifting</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h1>hTMM</h1>
+  <h2>Step 1: Identify the System You Will Be Modelling</h2>
+  <p>Water treatment plants, mainly including water sources, water treatment equipment, pipe network systems, monitoring
+    systems, HMI, PLC, etc.</p>
+  <p>Security goals are to filter all harmful or detrimental substances out of the water.</p>
+
+  <h2>Step 2: Create a large initial set of possible threats by applying Security Cards</h2>
+  <p>Appropriate security cards are applied according to the security needs of the water treatment plant and industry
+    standards, and security cards are issued to three categories of participants as follows:</p>
+
+  <ol>
+    <li>System users/Purchasers ：Operators, representatives of regulatory bodies, procurement departments, etc.</li>
+    <li>System engineers/Developers：Process engineers, automation engineers, design engineers, systems engineers,
+      architects, developers, etc.</li>
+    <li>Cybersecurity experts：Network security analysts, security architects, security consultants, penetration testers.
+    </li>
+  </ol>
+
+  <p>Have the participants look over the cards along all four dimensions: human impact, adversary's motivations,
+    adversary's resources, and adversary's methods.</p>
+
+  <p>Let the participants consider the questions：</p>
+
+  <ol>
+    <li>If your system were compromised, what assets, both human and system, could be impacted?</li>
+    <p>System users/purchasers:</p>
+    <p>Operators: may be affected by system outages, operational errors or information leaks.</p>
+    <p>Regulatory agency representatives: may result in regulatory targets not being met, water quality issues or
+      compliance issues.</p>
+    <p>Procurement departments: may be affected by supply chain disruptions, equipment damage or supplier information
+      breaches.</p>
+    <p>System engineers/developers:</p>
+    <p>Process engineers: may lead to reduced process efficiency, water quality issues or equipment damage.</p>
+    <p>Automation engineers: may result in automation system failures, control failures or information leaks.</p>
+    <p>Design engineers: may be affected by system design flaws, equipment damage or confidential information leaks.</p>
+    <p>Cybersecurity experts:</p>
+    <p>Network security analysts: may result in network outages, data breaches or unauthorised access.</p>
+    <p>Security Architect: May be affected by security architecture flaws, vulnerability exploits or malware attacks.
+    </p>
+    <p>Security consultants: May lead to security policy failures, threat intelligence leaks or unauthorised access.</p>
+
+    <li>Who are the personae non gratae who might reasonably attack your system and why? </li>
+    <p>What are their names/job titles/roles? Describe them in some detail:</p>
+    <p>(1) What are their goals?</p>
+    <p>(2) What resources and skills might the PnG have?</p>
+    <p>Competitors or Business Adversaries: Other companies or competitors may try to gain access to your business
+      secrets or disrupt your operations.</p>
+    <p>(1) Objective: To steal confidential data, gain a commercial advantage or damage your reputation.</p>
+    <p>(2) Resources and skills: Competitive knowledge, technology and resources that may attack systems using hacking
+      techniques or social engineering, etc.</p>
+    <p>External hackers or hacker groups: These hackers may launch targeted attacks on the systems of a water treatment
+      plant to satisfy their individual or collective </p>
+    <p>objectives, to gain access to sensitive information or to manipulate the system.</p>
+    <p>(1) Objective: To gain control of the system, deliberately damage or blackmail the business.</p>
+    <p>(2) Resources and skills: advanced cyber-attack techniques, malware development, social engineering skills, etc.
+    </p>
+    <p>Internal malicious persons: There may be internal employees or developers who try to use their privileges or
+      knowledge to compromise the system or gain access to confidential information.</p>
+    <p>(1) Objective: To sabotage the system, steal confidential information or violate regulations or deliberately
+      damage the company's reputation.</p>
+    <p>(2) Resources and skills: Insiders with system access, development knowledge and privileges who understand the
+      vulnerabilities and weaknesses of the system.</p>
+    <p>Professional Penetration Testers: These are professional penetration testers employed by a security agency or
+      company to simulate the behaviour of an attacker to assess the security of a system.</p>
+    <p>(1) Objective: To discover and report security vulnerabilities and weaknesses in a system.</p>
+    <p>(2) Resources and skills: Familiarity with a wide range of attack techniques and tools, and expertise in
+      penetration testing and vulnerability assessment.</p>
+    <li>In what ways could the system be attacked?</li>
+    <p>(1) For each attack vector, have you identified a PnG (or could you add a PnG) capable of utilising that vector?
+    </p>
+    <p>Cyber attack: Hackers attacking systems through network intrusion, denial of service attacks or phishing attacks.
+    </p>
+    <p>PnG: Hackers, hackers, cybercriminal organisations, etc.</p>
+    <p>Physical attacks: Attackers attack systems through physical intrusion, equipment damage or vandalism of
+      facilities.</p>
+    <p>PnG: Malicious staff, malicious visitors, vandals, etc.</p>
+    <p>Social engineering: Attackers misbehave by tricking, disguising or luring personnel in order to gain access or
+      sensitive information.</p>
+    <p>PnG: social engineer, fraudster, mole, etc.</p>
+  </ol>
+
+  <h2>Step 3: Delete something in listed attacks. PnGs are unlikely or no realistic attack vectors could be identified
+  </h2>
+  <p>The following may be impractical PnG:</p>
+  <ul>
+    <li>Competitors or business rivals: While competitors may attempt to gain access to sensitive information or disrupt
+      operations, usually these actions are subject to legal and ethical constraints and do not resort to illegal means.
+    </li>
+    <li>Internal malicious persons: While internal employees may abuse their privileges or engage in illegal activities,
+      most organisations have appropriate internal controls and monitoring mechanisms in place to mitigate such risks
+      and can reduce many internal attacks.</li>
+    <li>Professional Penetration Testers: Often bound by contract, such security experts or penetration testers are
+      brought in with little chance of concealing company vulnerabilities and exploiting them maliciously.</li>
+  </ul>
+  <p>Of the above attack vectors, the following may be difficult to identify:</p>
+  <ul>
+    <li>Social engineering: Social engineering is the attacking of systems through deception and manipulation of human
+      behaviour. This type of attack often exploits human weaknesses and is difficult to identify entirely by technical
+      means. Staff need to be educated and trained to be more aware and alert to social engineering attacks.</li>
+    <li>Advanced cyber attack techniques: Advanced cyber attack techniques often use new and unknown vulnerabilities or
+      techniques, which make these attack vectors difficult to identify and stop by traditional security defences.
+      Keeping up to date and adopting the latest security technologies and threat intelligence can help improve the
+      identification of these attack vectors.</li>
+  </ul>
+
+  <h2>Step 4: Summarise the results from the above steps</h2>
+  <p>Threat Participant Role:</p>
+  <ul>
+    <li>External hackers or hacktivist groups: These hackers may launch targeted attacks on the water treatment plant's
+      systems to meet their individual or collective objectives, to gain access to sensitive information or to
+      manipulate the system.</li>
+    <p>Objective: Gain control of the system, deliberately damage or blackmail the business.</p>
+    <p>Resources and skills: advanced cyber-attack techniques, malware development, social engineering skills, etc.</p>
+    <li>Internal malicious personnel: There may be internal employees or developers who seek to use their privileges or
+      knowledge to compromise systems or gain access to confidential information.</li>
+    <p>Objective: To compromise systems, steal confidential information or breach regulations or deliberately damage the
+      company's reputation.</p>
+    <p>Resources and skills: Insiders with access to systems, development knowledge and privileges, knowledge of system
+      vulnerabilities and weaknesses.</p>
+  </ul>
+
+  <p>Possible Attack Vectors:</p>
+  <ul>
+    <li>Cyber attack: Hackers attacking systems through network intrusion, denial of service attacks or phishing
+      attacks.</li>
+    <p>PnG: Hackers, hackers, cybercriminal organisations, etc.</p>
+    <li>Physical attacks: Attackers attack systems through physical intrusion, equipment damage or vandalism of
+      facilities.</li>
+    <p>PnG: Malicious staff, malicious visitors, vandals, etc.</p>
+    <li>Social Engineering:Attackers misbehave by tricking, disguising or luring personnel in order to gain access or
+      sensitive information.</li>
+    <p>PnG: Social engineer, fraudster, mole, etc.</p>
+  </ul>
+
+  <p>summarise the results from the above steps，utilising tool support, as follow:</p>
+
+  <p>a. Actor (PnG): Who or what instigates the attack?</p>
+  <p>b. Purpose: What is the actor's goal or intent?</p>
+  <p>c. Target: What asset is the target?</p>
+  <p>d. Action: What action does the actor perform or attempt to perform? Here you should consider both the resources
+    and the skills of the actor. You will also be describing HOW the actor might attack your system and its expansion
+    into misuse cases.</p>
+  <p>e. Result of the action: What happens as a result of the action? What assets are compromised? What goal has the
+    actor achieved?</p>
+  <p>f. Impact: What is the severity of the result (high, medium, or low)</p>
+  <p>g. Threat type: (e.g., denial of service, spoofing)</p>
+  <p>Answer:</p>
+  <p>a. Actor (PnG): Who or what triggered the attack?</p>
+  <p>External hacker or hacker group, Internal employee or developer</p>
+  <p>b. Purpose: What is the attacker's goal or intent?</p>
+  <p>To gain access to sensitive information, to manipulate a system, to satisfy an individual or collective goal
+    Compromise a system, gain access to confidential information, abuse of privilege</p>
+  <p>c. Target: What is the target of the attack?</p>
+  <p>Water treatment plant systems and related assets (e.g. control systems, databases, servers, network equipment,
+    etc.)</p>
+  <p>d. Action: What action does the attacker perform or attempt to perform? The resources and skills of the attacker
+    need to be considered here. You should also describe how the attacker might attack your system and extend to misuse
+    cases.</p>
+  <p>External hackers or hacktivist groups: use advanced cyber attack techniques such as network intrusion, denial of
+    service attacks, phishing attacks, etc. to gain control of the system, steal sensitive information or compromise the
+    system.
+    Internal employees or developers: Use their privileges or knowledge, for example to abuse system access, develop
+    backdoors, steal confidential information or compromise the configuration of the system.</p>
+  <p>e. Result of the action: What is the result of the action? What assets were compromised? What objectives did the
+    attacker achieve?</p>
+  <p>Assets compromised: The integrity, availability and confidentiality of the system is threatened, which may result
+    in equipment failure, data leakage, service disruption, system downtime, etc.
+    Attacker achieves objectives: External hackers or hacktivist groups may succeed in obtaining sensitive information,
+    manipulating systems or satisfying individual or collective goals; internal employees or developers may compromise
+    systems, obtain confidential information or abuse privileges.</p>
+  <p>f. Impact: What is the severity of the outcome?</p>
+  <p>External hacker or hacker group: High</p>
+  <p>Internal employee or developer: High (if the insider has access to all core information)</p>
+  <p>Internal employee or developer: Medium (if the insider has access to some of the core information)</p>
+  <p>Internal employee or developer: low (if insider does not have access to core information)</p>
+  <p>g. Threat type: What is the threat type?</p>
+  <ul>
+    <li>Physical attacks: e.g. power disruption and damage to critical facilities can lead to serious effects such as
+      water outages and contaminated water sources.</li>
+    <li>Internal employees: Information breaches may lead to consequences such as sensitive data leaks and system
+      disruptions.</li>
+    <li>Remote attacks: e.g. supply chain attacks, vulnerability attacks, social engineering attacks, denial of service
+      attacks, which may lead to risks such as system downtime, data leakage and service disruption.</li>
+  </ul>
+
+  <h2>Step 5</h2>
+  <p>After the preceding steps are done, you can continue with a formal risk assessment method, using these results, and
+    the additional steps of a security requirements method.</p>
+</body>
+
+</html>

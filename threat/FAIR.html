@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Risk Assessment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+
+    h2,
+    h2 {
+      color: #333;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .navbar {
+      background-color: #1E90FF;
+      /* Change the background color to a shade of blue */
+      overflow: hidden;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      /* Add a subtle box shadow */
+    }
+
+    .navbar a {
+      float: left;
+      color: #ffffff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      transition: background-color 0.3s, color 0.3s;
+      /* Add smooth transition */
+    }
+
+    .navbar a:hover {
+      background-color: #6CA6CD;
+      /* Darken the background color on hover */
+      color: #ffffff;
+      /* Change the text color on hover */
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      flex-direction: column;
+      margin-top: 50px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown:hover>.dropdown-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-content-sub {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 40px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      margin-top: 10px;
+      margin-left: 170px;
+      flex-direction: column;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown-content li:hover>.dropdown-content-sub {
+      display: block;
+    }
+  </style>
+</head>
+
+<body background="../img/watercolor-4116932_1920.png">
+  <div class="navbar">
+    <div class="dropdown">
+      <a href="../index.html" class="dropbtn">Risk Models in Cybersecurity</a>
+      <ul class="dropdown-content">
+        <li><a href="../attack/Phishing Attack.html">Phishing</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/Ddos.html">DDos</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/vulnerability attack.html">Vulnerability attack</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/data breach.html">Data Leakage</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/unauthorized access.html">Unauthorised access</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/Escalation of rights.html">Privilege lifting</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h1>FAIR</h1>
+  <h2>Step1: Identify Scenario Components</h2>
+  <ul>
+    <li>webserver</li>
+    <p>Loss Event Probability: The loss event probability depends on the specific environment and security measures. If
+      the web server is located on an internal network and protected by appropriate security controls, the probability
+      of a loss event may be low. However, if the server is directly facing the public network or lacks effective
+      security measures, the probability of a loss event may be higher.PLC and HMI devices</p>
+    <li>PLC and HMI devices</li>
+    <p>Loss event probability: the loss event probability of a PLC device depends on the criticality of the system it
+      controls, network accessibility, and security measures. loss event probability may be higher where the PLC device
+      controls critical infrastructure and has serious vulnerabilities and is susceptible to attack.Database</p>
+    <li>Database</li>
+    <p>Loss event probability: the loss event probability of a database depends on the value of its sensitive data, the
+      security configuration of the database, and access control measures. If the database stores sensitive customer
+      information or important business data, and the database has serious vulnerabilities and is susceptible to
+      attacks, the loss event probability may be higher.</p>
+  </ul>
+
+  <h2>Step2: Evaluate Loss Event Frequency (LEF)</h2>
+  <p>1. Web servers:</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&#9679; The specific loss magnitude can be evaluated based on business value, recovery time objective (RTO), business continuity requirements and other factors. If only the peripheral Web servers are breached, the impact level is medium and the expected loss is in the tens of millions.</p>
+  <p>2. PLC and HMI devices:</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&#9679; The specific loss magnitude can be assessed based on the value of the critical
+    equipment or system, the impact of downtime, recovery time objectives, and other factors. If the PLC and HMI
+    equipment is attacked to the point where the equipment does not work properly, the impact tier is high and the
+    expected loss is in the hundreds of millions.</p>
+  <p>3. Database:</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&#9679; Specific loss level can be assessed based on the value of the data, the impact of
+    data loss, the difficulty of data recovery and other factors. If there is a database information leakage or loss of
+    impact level is very high, the expected loss of several billion.</p>
+
+  <p>Loss Event Frequency = Threat Event Frequency * Vulnerability = (Contact Frequency * probability of Action) +
+    (Threat Capability * Resistance strength)</p>
+  <p>For Web servers:</p>
+  <p>Loss Event Frequency = Threat Event Frequency * Vulnerability = (100 times * 30%) times * (35% * 70%) = 7.35 times
+  </p>
+  <p>TEF: High (Between 10 and 100 times per year)</p>
+  <p>TCap: Moderate (Average skill and resources (between bottom 16% and top 16%))</p>
+  <p> CS: Moderate (Protects against the average threat agent)</p>
+  <p>Vuln: Moderate (Protects against the average threat agent)</p>
+  <p>Vuln: Moderate ( Moderate TCap and Moderate CS)</p>
+  <p>LEF: High ( High TEF and Moderate Vuln)</p>
+
+  <p>For PLC and HMI devices:</p>
+  <p>Loss Event Frequency = Threat Event Frequency * Vulnerability = (200 times * 70%) * (60% * 30%) = 15.2 times</p>
+  <p>TEF: Very High (More than 100 times per year)</p>
+  <p>TCap: Moderate (Average skill and resources (between bottom 16% and top 16%))</p>
+  <p> CS: Moderate (Protects against the average threat agent)</p>
+  <p>Vuln: Moderate (Protects against the average threat agent)</p>
+  <p>Vuln: Moderate ( Moderate TCap and Moderate CS)</p>
+  <p>LEF: Very High ( Very High TEF and Moderate Vuln)</p>
+
+  <p>For databases:</p>
+  <p>Loss Event Frequency = Threat Event Frequency * Vulnerability = (200 times * 50%) * (80% * 15%) = 12 times</p>
+  <p>TEF: High (Between 10 and 100 times per year)</p>
+  <p>TCap: Moderate (Average skill and resources (between bottom 16% and top 16%))</p>
+  <p> CS: Moderate (Protects against the average threat agent)</p>
+  <p>Vuln: Moderate (Protects against the average threat agent)</p>
+  <p>Vuln: Moderate ( Moderate TCap and Moderate CS)</p>
+  <p>LEF: High ( High TEF and Moderate Vuln)</p>
+
+
+  <h2>Step3: Evaluate probable Loss Magnitude (PLM)</h2>
+  <p>Loss Magnitude = Primary Loss * Secondary Loss = Primary Loss + (Secondary Loss Event Frequency * Secondary Loss
+    Magnitude)</p>
+  <p>For web servers:</p>
+  <p>Loss Magnitude = Primary Loss + Secondary Loss = Primary Loss + (Probability of Secondary Loss * Magnitude of
+    Secondary Loss) = 1000w + (25% * 300w) = 1075w </p>
+  <p>PLM: High ( More than 1000w )</p>
+  <p>For PLC and HMI devices:</p>
+  <p>Loss Event Frequency = Threat Event Frequency * Vulnerability = (200 events * 70%) * (60% * 30%) = 15.2</p>
+  <p>Loss Magnitude = Primary Loss + Secondary Loss = Primary Loss + (Probability of Secondary Loss * Magnitude of
+    Secondary Loss) = 10,000w + (25% * 1000w) = 10250w</p>
+
+  <p>PLM: Severe ( More than 1000w )</p>
+  <p>Loss Magnitude = Primary Losses + Secondary Losses = Primary Losses + (Probability of Secondary Losses * Magnitude
+    of Secondary Losses) = 30000w + (40% * 5000w) = 32000w</p>
+  <p>PLM: Severe</p>
+
+  <h2>Step4: Derive and Articulate Risk</h2>
+  <p>Risk = Loss Event Frequency * Loss Magnitude</p>
+  <p>For Web Server:</p>
+  <p>Final Loss = Loss Event Probability * Loss Magnitude = 7901.25w</p>
+  <p>Risk: Critical ( Servere PLM and High LEF )</p>
+  <p>For PLC and HMI devices:</p>
+  <p>Final Loss = Loss Event Probability * Loss Magnitude = 483000</p>
+  <p>Risk: Critical ( Servere PLM and Very High LEF )</p>
+
+  <p>For databases:</p>
+  <p>Final loss = probability of loss event * magnitude of loss = 384000w</p>
+  <p>Risk: Critical ( Servere PLM and High LEF )</p>
+
+</body>
+
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Security Assumptions and Mitigation</title>
+  <style>
+    .navbar {
+      background-color: #1E90FF;
+      /* Change the background color to a shade of blue */
+      overflow: hidden;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      /* Add a subtle box shadow */
+    }
+
+    .navbar a {
+      float: left;
+      color: #ffffff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      transition: background-color 0.3s, color 0.3s;
+      /* Add smooth transition */
+    }
+
+    .navbar a:hover {
+      background-color: #6CA6CD;
+      /* Darken the background color on hover */
+      color: #ffffff;
+      /* Change the text color on hover */
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      flex-direction: column;
+      margin-top: 50px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown:hover>.dropdown-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-content-sub {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 40px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      margin-top: 10px;
+      margin-left: 170px;
+      flex-direction: column;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown-content li:hover>.dropdown-content-sub {
+      display: block;
+    }
+  </style>
+</head>
+
+<body background="../img/watercolor-4116932_1920.png">
+  <div class="navbar">
+    <div class="dropdown">
+      <a href="../index.html" class="dropbtn">Risk Models in Cybersecurity</a>
+      <ul class="dropdown-content">
+        <li><a href="../attack/Phishing Attack.html">Phishing</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/Ddos.html">DDos</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/vulnerability attack.html">Vulnerability attack</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/data breach.html">Data Leakage</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/unauthorized access.html">Unauthorised access</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/Escalation of rights.html">Privilege lifting</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h1>STRIDE</h1>
+  <h2>Step1: Define use scenarios</h2>
+  <p>Water supplies, purification facilities, piping infrastructure, surveillance mechanisms, programmable logic
+    controllers, human-machine interfaces, data storage, and server management.</p>
+
+  <h2>Step2: Gather a list of external dependencies</h2>
+  <ul>
+    <li>HMI: Siemens SIMATIC HMI TP700 Comfort</li>
+    <li>Server: Cisco UCS C240 M5</li>
+    <li>Database: Oracle</li>
+    <li>PLC device: Siemens S7-1200</li>
+    <li>Web server: nginx</li>
+  </ul>
+
+  <h2>Step3: Define security assumptions</h2>
+  <h3>HMI (Siemens SIMATIC HMI TP700 Comfort):</h3>
+  <p>Security Assumptions: It is assumed that the HMI system is protected by appropriate access controls and
+    authentication to ensure that only authorised users can access and operate the HMI interface.</p>
+
+  <h3>Server (Cisco UCS C240 M5):</h2>
+    <p>Security Assumptions: We assume that the servers are protected by a variety of physical security measures, e.g.,
+      located in a protected server room and managed by means of access control and monitoring. It is also assumed that
+      the server's operating system and applications receive regular security updates and vulnerability patches.</p>
+
+    <h3>Database (Oracle):</h3>
+    <p>Security Assumptions: We assume the database employs robust access controls to permit only authorised users.
+      Strong passwords and encryption safeguard authentication and data transmission. Additionally, regular updates and
+      patches are applied to address potential vulnerabilities.</p>
+
+    <h3>PLC device (Siemens S7-1200):</h3>
+    <p>Security Assumptions: The setup of PLC devices incorporates proper access controls, restricting programming and
+      configuration to authorised personnel only. Additionally, communication channels for these PLC devices benefit
+      from encryption and safeguards against unauthorised access and tampering. Regular updates for security measures
+      and vulnerability patches are also a given for the device firmware.</p>
+
+    <h3>Web server (nginx):</h3>
+    <p>Security Assumptions: The premise for operational safety hinges on a securely configured web server. This
+      involves deactivating superfluous services and ports, employing robust password policies, and ensuring encrypted
+      communications. Additionally, the server is expected to stay up-to-date with essential security patches and
+      vulnerability fixes.</p>
+
+    <h2>Step4: Create external security notes</h2>
+    <h3>HMI (Siemens SIMATIC HMI TP700 Comfort):</h3>
+    <p>Security Notification: Potential threats include unauthorised individuals altering the HMI interface settings.
+      Additionally, cyber risks like phishing, network breaches, or malware can lead to unauthorised access to the HMI
+      system.</p>
+
+    <h3>Server (Cisco UCS C240 M5):</h3>
+    <p>External Security Considerations: Although I've made sure our server is secure, it's important to remember that
+      no system connected to the internet is completely invulnerable. There are always risks out there, whether they're
+      remote attacks such as DDoS events or malware infiltrations. I've taken steps to protect our physical servers too,
+      but staying alert to the possibility of unauthorised physical access is always a smart move.</p>
+
+    <h3>Database (Oracle):</h3>
+    <p>External Security Note: It is crucial to be aware that databases are susceptible to a variety of remote attack
+      vectors, including but not limited to SQL injection, unauthorised entry from remote locations, and the
+      exploitation of remote vulnerabilities. Additionally, the procedures for database backup and recovery are
+      vulnerable to risks such as data leakage and unauthorised access.</p>
+
+    <h3>PLC devices (Siemens S7-1200):</h3>
+    <p>External security note: PLC devices may be at risk from a variety of cyber-attacks, including unauthorised remote
+      access, network eavesdropping or tampering with PLC communications. In addition, PLC hardware can also be accessed
+      and tampered with by entities such as someone who has unauthorised access to and changes to the PLC settings.</p>
+
+    <h3>Web server (nginx):</h3>
+    <p>External security note: Web servers may be exposed to cyber-attack threats such as DDoS attacks, SQL injection,
+      cross-site scripting attacks (XSS) or remote vulnerability exploitation. In addition, misconfigured web servers or
+      insecure applications can lead to sensitive data leakage or unauthorised access.</p>
+
+    <h2>Step5: Create one or more DFDs of the application being analysed</h2>
+    <p>DFD diagrams here...</p>
+    <img src="../img/8.png" alt="">
+
+    <h2>Step6: Determine threat types</h2>
+    <p>STRIDE is Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, and Elevation of privilege corresponding to Confidentiality, Integrity, Availability, Authentication, Authorisation, and Non-repudiation.
+      In this simulation scenario, there are only four threat types: Tampering, Repudiation, Information disclosure and Elevation of privilege.</p>
+      <img src="../img/Information_Disclosure.png" alt="">
+      <img src="../img/Elevation_of_privieges.png" alt="">
+      <img src="../img/Repudiation.png" alt="">
+      <img src="../img/Tampering1.png" alt="">
+
+    <h2>Step7: Identify the threats to the system</h2>
+    <p>Threats identified through STRIDE analysis (link to the <a href="../result/stride_analysis.htm">STRIDE.html</a>
+      file)</p>
+
+    <h2>Step8: Determine risk</h2>
+    <h3>Database:</h3>
+    <ul>
+      <li>SQL injection attack (high)</li>
+      <li>Unauthorised access attack (medium)</li>
+      <li>Information leakage (high)</li>
+    </ul>
+
+    <h3>Web server:</h3>
+    <ul>
+      <li>Forensic bypass (medium)</li>
+      <li>Application privilege lifting (high)</li>
+    </ul>
+
+    <h3>PLC:</h3>
+    <ul>
+      <li>Denial of service vulnerability attack (medium)</li>
+      <li>Command execution vulnerability attack (high)</li>
+      <li>Stack overflow vulnerability attack (high)</li>
+    </ul>
+
+    <h2>Step9: Plan mitigation</h2>
+    <h3>Mitigation measures against database attacks:</h3>
+    <ul>
+      <li>SQL Injection Attacks:
+        <ul>
+          <li>Use parameterised queries or pre-compiled statements to ensure that data entered by the user is not
+            executed as code.</li>
+          <li>Validate and filter input to ensure that only legitimate data is accepted.</li>
+          <li>Restrict database user permissions to avoid direct access to sensitive data.</li>
+        </ul>
+      </li>
+      <li>Unauthorised access attacks:
+        <ul>
+          <li>Implement strong authentication and authorisation mechanisms to ensure that only authorised users have
+            access to sensitive data.</li>
+          <li>Review user permissions regularly and revoke access that is no longer required in a timely manner.</li>
+          <li>Monitor and record database access logs to enable timely detection and investigation of unusual activity.
+          </li>
+        </ul>
+      </li>
+      <li>Information leakage:
+        <ul>
+          <li>Store sensitive data encrypted to prevent data leakage in the event of a breach.</li>
+          <li>Implement access controls to restrict access to sensitive data.</li>
+          <li>Conduct regular security audits and vulnerability scans to identify potential security risks in a timely
+            manner.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Mitigation measures against web server attacks:</h3>
+    <ul>
+      <li>Authentication bypass:
+        <ul>
+          <li>Implement strong authentication and authorisation mechanisms to ensure that only authorised users can
+            access restricted resources.</li>
+          <li>Strict validation and filtering of user input to avoid vulnerabilities that bypass authentication
+            mechanisms.</li>
+        </ul>
+      </li>
+      <li>Application Rights Raising:
+        <ul>
+          <li>Regularly update and patch applications to ensure known vulnerabilities are fixed in a timely manner.</li>
+          <li>Enforce the principle of least privilege and assign the minimum necessary privileges to applications.</li>
+          <li>Conduct code audits and security tests to identify and fix potential security vulnerabilities.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Mitigation measures for PLC device attacks:</h3>
+    <ul>
+      <li>Denial of Service Vulnerability Attacks:
+        <ul>
+          <li>Regularly update and repair the firmware and software of PLC devices to fix known vulnerabilities.</li>
+          <li>Use intrusion detection and firewall technology to monitor and filter traffic from suspicious sources.
+          </li>
+          <li>Configure appropriate load balancing and fault tolerance mechanisms to ensure that the system can continue
+            to operate normally in the event of an attack.</li>
+        </ul>
+      </li>
+      <li>Command execution vulnerability attacks and stack overflow vulnerability attacks:
+        <ul>
+          <li>Conduct security audits and vulnerability scans on PLC devices to identify potential security
+            vulnerabilities in a timely manner.</li>
+          <li>Implement access control to restrict physical and logical access to PLC devices.</li>
+        </ul>
+      </li>
+    </ul>
+</body>
+
+</html>

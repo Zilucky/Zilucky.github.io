@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Water Treatment Plant Project Risk Analysis</title>
+  <style>
+    .navbar {
+      background-color: #1E90FF;
+      /* Change the background color to a shade of blue */
+      overflow: hidden;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      /* Add a subtle box shadow */
+    }
+
+    .navbar a {
+      float: left;
+      color: #ffffff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      transition: background-color 0.3s, color 0.3s;
+      /* Add smooth transition */
+    }
+
+    .navbar a:hover {
+      background-color: #6CA6CD;
+      /* Darken the background color on hover */
+      color: #ffffff;
+      /* Change the text color on hover */
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      flex-direction: column;
+      margin-top: 50px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown:hover>.dropdown-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-content-sub {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 40px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      margin-top: 10px;
+      margin-left: 170px;
+      flex-direction: column;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown-content li:hover>.dropdown-content-sub {
+      display: block;
+    }
+  </style>
+</head>
+
+<body background="../img/watercolor-4116932_1920.png">
+  <div class="navbar">
+    <div class="dropdown">
+      <a href="../index.html" class="dropbtn">Risk Models in Cybersecurity</a>
+      <ul class="dropdown-content">
+        <li><a href="../attack/Phishing Attack.html">Phishing</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/Ddos.html">DDos</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/vulnerability attack.html">Vulnerability attack</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/data breach.html">Data Leakage</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/unauthorized access.html">Unauthorised access</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="../attack/Escalation of rights.html">Privilege lifting</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="stride.html">STRIDE</a></li>
+            <li><a href="PASTA.html">PASTA</a></li>
+            <li><a href="Attack Tree.html">Attack Tree</a></li>
+            <li><a href="hTMM.html">hTMM</a></li>
+            <li><a href="CVSS.html">CVSS</a></li>
+            <li><a href="FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h1>PASTA</h1>
+  <h2>Step 1: Define the Objectives</h2>
+  <p>Water treatment equipment, pipe network systems, PLCs, HMI equipment, databases, servers.</p>
+
+  <h2>Step 2: Define the Technical Scope</h2>
+
+  <p>What dependencies does my project rely on?</p>
+
+  <ul>
+    <li>Water treatment equipment: including equipment used to purify, filter, disinfect and regulate water quality,
+      such as sedimentation tanks, filters, reactors, disinfection equipment, etc.</li>
+    <li>Pipe network system: pipeline network used to convey and distribute water resources, including water supply
+      pipes, drainage pipes, pumps, valves, etc.</li>
+    <li>PLC (Programmable Logic Controller): A computer control system used to automate the control and monitoring of
+      the water treatment process, responsible for controlling the operation of water treatment equipment and pipe
+      network systems.</li>
+    <li>HMI equipment (human-machine interface equipment): provides an interface for interaction with the PLC and other
+      control systems used to operate, monitor and control the water treatment process.</li>
+    <li>Database: used to store and manage data related to the water treatment process, including monitoring data,
+      equipment status, reports etc.</li>
+    <li>Servers: provide computing and storage resources to support the software and system operation of the water
+      treatment plant project for data processing, storage and sharing.</li>
+  </ul>
+
+  <p>What permissions do I need for my project?</p>
+
+  <ul>
+    <li>Water treatment equipment permissions: may involve the operation, maintenance and monitoring of water treatment
+      equipment permissions, including equipment start and stop, parameter settings, fault diagnosis, etc.</li>
+    <li>Pipe network system permissions: involves access and control permissions to the pipe network system, including
+      operation of the pipe network, water flow control, valve control, etc.</li>
+    <li>PLC permissions: permissions management of the PLC system, including programming and modification of automation
+      control logic, data acquisition and monitoring, etc.</li>
+    <li>HMI device permissions: relates to the management of permissions for HMI devices, including access to and
+      operation of interfaces, which may include operator permissions, administrator permissions, etc.</li>
+    <li>Database permissions: relates to access and management permissions to the database, including permissions to
+      store, query, modify and delete data, as well as permissions to manage the database structure and security.</li>
+    <li>Server permissions: relates to access and management permissions to the server, including permissions to the
+      operating system, network configuration, software installation and upgrades, etc.</li>
+  </ul>
+
+  <p>Which components does the project communicate with and require authorisation or data reading/writing?</p>
+
+  <ul>
+    <li>Water treatment equipment:</li>
+    <p>a. Communication with PLC: Water treatment equipment communicates with PLC by means of digital signals, analogue
+      signals or communication buses in order to transmit control instructions and receive equipment status information.
+    </p>
+    <p>b. Communication with HMI equipment: Water treatment equipment and HMI equipment to communicate in order to
+      display equipment status, alarm information and operating parameters to the operator, and receive operator
+      instructions and control inputs.</p>
+    <li>Pipe network system:</li>
+    <p>a. Communication with PLC: The pipe network system communicates with the automation control system via the PLC in
+      order to receive control commands and transmit information on the status of the pipe network.</p>
+    <p>b. Communication with HMI equipment: The pipe network system communicates with the HMI equipment in order to
+      display the network status, flow information and valve status to the operator and to receive operator commands and
+      control inputs.</p>
+    <li>PLC (Programmable Logic Controller):</li>
+    <p>a. Communication with water treatment equipment: PLC communicates with water treatment equipment by means of
+      digital signals, analogue signals or communication buses in order to control the start/stop, parameter setting and
+      fault diagnosis of the equipment.</p>
+    <p>b. Communication with the pipe network system: PLC communicates with the pipe network system by means of digital
+      signals, analogue signals or communication buses in order to control the operation of water flow, valves and
+      pipes.</p>
+    <li>HMI equipment (human-machine interface equipment):</li>
+    <p>a. Communication with water treatment equipment: HMI equipment communicates with water treatment equipment
+      through PLC or other interfaces in order to read equipment status, alarm information and operating parameters, and
+      to send control commands to the equipment.</p>
+    <p>b. Communication with the pipe network system: HMI equipment communicates with the pipe network system through
+      PLC or other interfaces in order to read the pipe network status, flow information and valve status, and send
+      control commands to the pipe network system.</p>
+
+    <li>Databases:</li>
+    <p>a. Communication with water treatment equipment: The database may communicate with the monitoring system or data
+      acquisition system of the water treatment equipment in order to receive equipment status data, monitoring data or
+      operation logs etc.</p>
+    <p>b. Communication with HMI equipment: The database may communicate with the HMI equipment to provide data and
+      reports required by the operator.</p>
+    <li>Servers:</li>
+    <p>a. Communication with PLCs: The server may communicate with PLCs over the network to receive data, status
+      information and alarm messages transmitted by the PLC and to send control commands to the PLC.</p>
+    <p>b. Communication with databases: The server may communicate with databases to read or write data, perform queries
+      and record logs.</p>
+  </ul>
+
+  <p>Will the project create new data? What is the classification of this data?</p>
+
+  <ul>
+    <li>Water treatment equipment:</li>
+    <p>a. Equipment operation data: includes the operating status, parameters and performance indicators of the
+      equipment.</p>
+    <p>b. Equipment alarm data: records equipment failure, abnormalities or exceedance of set thresholds of alarm
+      information.</p>
+    <p>c. Equipment maintenance data: including equipment maintenance records, maintenance history and maintenance
+      plans, etc.</p>
+    <li>Pipeline network system:</li>
+    <p>a. Pipeline flow data: records flow information in the pipeline network for monitoring and regulating water
+      supply and distribution.</p>
+    <p>b. Pipeline pressure data: Records pressure changes in the network for stable pipeline operation and pressure
+      control.</p>
+    <p>c. Valve status data: records the opening and closing status of valves in the pipeline network for controlling
+      water flow and adjusting the pipeline network.</p>
+
+    <li>PLC (Programmable Logic Controller):</li>
+    <p>a. Operation log data: records the operation status of the PLC, control commands and event logs etc.</p>
+    <p>b. Operating parameter data: including PLC configuration parameters, control logic and device connection
+      information etc.</p>
+    <li>HMI devices (human-machine interface devices):</li>
+    <p>a. Operation log data: records the operator's operation records and operation instructions on the HMI interface.
+    </p>
+    <p>b. Operational status data: Shows the status of the components in the water treatment process, alarms and
+      parameter information.</p>
+    <li>Database:</li>
+    <p>a. Monitoring data: including water quality monitoring data, environmental monitoring data and equipment
+      operation monitoring data, etc.</p>
+    <p>b. Report data: generate various types of reports, such as water quality reports, equipment maintenance reports
+      and operational statistics reports.</p>
+    <p>c. Historical data: record the historical data in the process of water treatment, for analysis and trend
+      prediction.</p>
+    <li>Server:</li>
+    <p>a. Log data: record the system's operating logs, event logs and security logs, etc.</p>
+    <p>b. Data backup data: Store regular backups of system data for disaster recovery and data protection.</p>
+  </ul>
+
+
+
+
+  <h2>Step3：Decompose the Application</h2>
+
+  <p>Who are the target consumers of the project?</p>
+
+  <ul>
+    <li>Water treatment plant operators: The management team and operators of water treatment plants are the target consumers of the project. The team ensures the water treatment process runs smoothly and meets water quality standards.</li>
+    <li>Regulatory entity members: These individuals represent regulatory agencies and are key stakeholders. Their role is to oversee and evaluate the performance and water quality of the water treatment facility, confirming it aligns with established regulations and benchmarks.</li>
+    <li>Providers of water treatment plants: These providers are key stakeholders in the initiative. Their role is to grasp the specifications of the water treatment facility and deliver appropriate machinery and strategies.</li>
+    <li>Network managers: In cases where the water treatment facility is set to deliver potable water to urban areas or communities, the respective network managers become vital stakeholders. Their responsibility includes maintaining network system integrity and ensuring water supply quality</li>
+  </ul>
+
+  <p>What data will the project read or write?</p>
+  <ul>
+    <li>Water treatment equipment:</li>
+    <p>a. Read: equipment status, operating parameters, alarm information, equipment performance indicators, etc.</p>
+    <p>b. Write: equipment control commands, equipment configuration parameters, maintenance records, etc.</p>
+
+    <li>Pipe network system:</li>
+    <p>a. Read: pipeline flow, pipeline pressure, valve status, etc.</p>
+    <p>b. Write: pipeline regulation commands, valve control commands, etc.</p>
+
+    <li>PLC (Programmable Logic Controller):</li>
+    <p>a. Read: operation logs, operation parameters, equipment connection status, etc.</p>
+    <p>b. Write: control commands, parameter configuration, etc.</p>
+
+    <li>HMI devices (Human Machine Interface devices):</li>
+    <p>a. Read: operator input, device status, alarm messages, etc.</p>
+    <p>b. Write: operating commands, device parameter settings, etc.</p>
+
+    <li>Database:</li>
+    <p>a. Read: historical data, monitoring data, report data, etc.</p>
+    <p>b. Write: real-time monitoring data, report data, configuration information, etc.</p>
+
+    <li>Servers:</li>
+    <p>a. Read: system logs, security logs, backup data, etc.</p>
+    <p>b. Writes to: system logs, backup data, security configuration information, etc.</p>
+  </ul>
+
+  <img src="../img/8.png">
+
+  <h2>Step 4: Analyze the Threats</h2>
+  <p>What are the potential threats arising from the project?</p>
+  <ol>
+    <li>System failure or equipment failure: Water treatment equipment, pipe network systems, PLCs, HMI equipment, etc.
+      may fail, resulting in interruption of the water treatment process, performance degradation or equipment damage.
+    </li>
+    <li>Network attacks: The database, servers, PLCs, HMI equipment, etc. of the water treatment plant may become the
+      target of network attacks, such as intrusions, denial of service attacks, malware infections, etc., resulting in
+      data leakage, system paralysis or interference with operations.</li>
+    <li>Data leakage or confidential information leakage: Sensitive data stored in databases, servers, HMI equipment,
+      etc. may be subject to threats such as unauthorized access, data leakage, illegal actions by internal staff,
+      resulting in confidential information exposure, privacy invasion, or data loss.</li>
+    <li>Physical security threats: Water treatment equipment, pipe network systems, etc. may be subject to physical
+      intrusion, sabotage, malicious operation, and other threats, resulting in equipment damage, water supply
+      interruption, or improper operation.</li>
+    <li>Social engineering attacks: Through spoofing, disguising, phishing, and other means, attackers may target water
+      treatment plant staff to conduct social engineering attacks to obtain sensitive information, access rights, or
+      perform manipulation.</li>
+    <li>Supply chain attacks: Attackers may exploit weaknesses in the supply chain to introduce malware,
+      vulnerabilities, or malicious devices into the water treatment plant's systems, leading to security breaches, data
+      leaks, or system compromises.</li>
+    <li>Internal threats: Malicious internal employees may abuse their privileges or knowledge to maliciously operate
+      the system, deliberately damage it, disclose confidential information, etc., resulting in a security breach,
+      operational error, or data compromise.</li>
+    <li>Unauthorized access: An attacker could gain unauthorized access to a water treatment plant's systems, equipment,
+      or databases to obtain sensitive information, tamper with data, interfere with operations, or perform malicious
+      acts.</li>
+  </ol>
+
+  <p>Are there other systems or components that could pose a risk to our project if they are flawed?</p>
+  <ol>
+    <li>Operating system and software dependencies: If the operating system or software used has security
+      vulnerabilities or unpatched software flaws, it may be exploited by attackers, leading to risks such as system
+      compromise, data leakage, or service disruption.</li>
+    <li>Third-party components and libraries: Third-party components or libraries used in the project, such as open
+      source software, external APIs, etc., may pose a risk to the security and reliability of the project if there are
+      security vulnerabilities or unknown flaws.</li>
+    <li>Firmware and software updates from equipment manufacturers: If equipment manufacturers do not provide security
+      patches, firmware updates, or software updates in a timely manner, there are unpatched vulnerabilities or flaws
+      that may leave the equipment vulnerable to attack, affecting the security of the water treatment plant project.
+    </li>
+    <li>Communications and Network Infrastructure: Should the project depend on a communications and network infrastructure characterised by vulnerabilities, improper configurations, or unsecured communications, it may become susceptible to various risks, including but not limited to unauthorised data exposure, interception by unauthorised entities, and service disruptions.</li>
+    <li>Third-party service providers: If third-party cloud services, data storage, or outsourced services are used in
+      the project, the security measures and data protection measures of these service providers may have an impact on
+      the security of the project, such as data leakage, data loss, or service disruption.</li>
+  </ol>
+
+  <p>Are there elements of the implementation or creation process itself that could introduce risk?</p>
+  <ol>
+    <li>Insecure configuration and deployment: If there are misconfigurations or improper security settings during
+      implementation or creation, this may leave the system in a vulnerable state and susceptible to attack. Examples
+      include the use of default passwords, unencrypted communications, incorrectly configured access controls, etc.
+    </li>
+    <li>Inadequate testing and evaluation: Failure to adequately test and evaluate security during implementation or
+      creation may result in undiscovered vulnerabilities or flaws being present in the system, leaving it vulnerable to
+      attack.</li>
+    <li>Lack of security awareness training: If project participants lack awareness of security risks and best
+      practices, they may neglect security measures during implementation or creation, increasing potential
+      vulnerabilities and risks.</li>
+    <li>Supply chain risk: The software, equipment, or services used in the implementation or creation process may be at
+      risk from supply chain attacks. Malicious suppliers or insecure links in the supply chain may introduce malware,
+      backdoors, or unknown security vulnerabilities.</li>
+    <li>Inappropriate rights management: Failure to properly manage and assign access rights during implementation or
+      creation could result in unauthorized people or systems being able to access sensitive information or perform
+      dangerous operations.</li>
+    <li>Inadequate change management: Failure to properly manage changes during implementation or creation, including
+      version control, auditing changes, and verifying the security of changes, may introduce insecure code,
+      configurations, or system states.</li>
+  </ol>
+
+  <h2>Step5： Vulnerability Analysis</h2>
+
+  <ol>
+    <li>Physical Security Threats:</li>
+    <p><b>Attack Event:</b> Physical intrusion or malicious operation of equipment, resulting in damage to equipment or
+      interruption of water supply.</p>
+    <p><b>Mitigation Measures:</b> Implement strict physical security controls such as installation of surveillance
+      cameras, access control systems, security fencing, etc.</p>
+
+    <li>Network Attacks:</li>
+    <p><b>Attack Events:</b> Database, servers, PLCs, HMI devices, etc. suffer network intrusion, denial of service
+      attacks, malware infections, etc., resulting in data leakage, system paralysis or disruption to operations.</p>
+    <p><b>Mitigation Measures:</b> Implement network security measures including firewalls, intrusion detection systems,
+      malware protection, encrypted communications, etc.</p>
+
+    <li>Data Breach or Leakage of Confidential Information:</li>
+
+    <p><b>Attack Event:</b> Unauthorised access to sensitive data stored in databases, servers, HMI devices, etc., data
+      leakage or illegal actions by internal staff.</p>
+    <p><b>Mitigation Measures:</b> Implement strict access control and authentication mechanisms, encrypt sensitive
+      data, perform data backup and monitoring, and provide staff security awareness training.</p>
+    <li>Social Engineering Attacks:</li>
+    <p><b>Attack Events:</b> Attackers use deception, disguise, phishing and other means to obtain sensitive
+      information, access rights or manipulation.</p>
+    <p><b>Mitigation Measures:</b> Provide staff security awareness training, educate staff to recognize and respond to
+      social engineering attacks, and implement multiple levels of identity verification.</p>
+
+    <li>Supply Chain Attacks:</li>
+    <p><b>Attack Events:</b> Malicious suppliers or links in the supply chain introduce malware, backdoors or unknown
+      security vulnerabilities that can lead to security breaches, data leaks or compromised systems.</p>
+    <p><b>Mitigation:</b> Conduct rigorous security reviews and assessments of suppliers, establish security compliance
+      requirements, and regularly update and review suppliers' software and equipment.</p>
+
+    <li>Internal Threats:</li>
+    <p><b>Attack Events:</b> Malicious internal employees misuse permissions or knowledge to maliciously manipulate
+      systems, deliberately sabotage, leak confidential information, etc.</p>
+    <p><b>Mitigation Measures:</b> Implement appropriate access controls and rights management, monitor employee
+      behavior, establish reporting mechanisms and security awareness training.</p>
+
+    <li>Operating System and Software Dependency:</li>
+    <p><b>Attack Events:</b> The operating system or software used has security vulnerabilities or unfixed software
+      flaws that could be exploited by attackers.</p>
+    <p><b>Mitigation Measures:</b> Keep operating system and software patches up to date, conduct vulnerability scans
+      and vulnerability assessments, adopt security configurations and best practices.</p>
+
+    <li>Third-party Components and Libraries:</li>
+    <p><b>Attack Events:</b> Third-party components or libraries are vulnerable to security holes or unknown flaws that
+      could pose a risk to the security and reliability of the project.</p>
+    <p><b>Mitigation:</b> Select trusted third-party components and libraries, update and fix vulnerabilities in a
+      timely manner, and conduct regular security assessments.</p>
+
+    <li>Firmware and Software Provided by the Device Manufacturer:</li>
+    <p><b>Attack Event:</b> Device manufacturer does not provide security patches, firmware updates or software updates
+      in a timely manner and there are unfixed vulnerabilities or flaws.</p>
+    <p><b>Mitigation:</b> Establish a good working relationship with the device manufacturer, obtain and apply security
+      patches and updates in a timely manner, monitor security bulletins and notifications from the manufacturer.</p>
+
+    <li>Communications and Network Infrastructure:</li>
+    <p><b>Attack Events:</b> Vulnerabilities, misconfigurations or unencrypted communications in the communications and
+      network infrastructure can lead to risks such as data leakage, man-in-the-middle attacks or network outages.</p>
+    <p><b>Mitigation Measures:</b> Implement encrypted communication protocols, protect network devices and
+      communication links, and regularly assess and reinforce network security measures.</p>
+
+    <li>Third-party Service Providers:</li>
+    <p><b>Attack Events:</b> Use of third-party cloud services, data storage or outsourcing services may expose you to
+      risks such as data leakage, data loss or service disruption.</p>
+    <p><b>Mitigation Measures:</b> Choose a reliable third-party service provider and ensure it has security controls
+      and data protection measures in place, with clear security protocols and service level agreements in place.</p>
+
+  </ol>
+
+  <p>If possible, use attack tree modelling to develop a threat tree containing vulnerabilities.
+    As the threat list progresses, consider CVSS/CWE mappings and compare these with discovered incidents/past flaws.
+  </p>
+
+  <h2>Step6：Attack Analysis</h2>
+
+  <ol>
+    <li>
+      <p><strong>Water treatment equipment:</strong></p>
+      <p>a. Possible attackers: internal staff, competitors, saboteurs</p>
+      <p>b. Attack methods: equipment operational errors, equipment sabotage, physical intrusion, malicious operation,
+        operational disruption</p>
+    </li>
+    <li>
+      <p><strong>Pipe network systems:</strong></p>
+      <p>a. Possible attackers: hackers, hacker groups, competitors</p>
+      <p>b. Attack methods: network intrusion, denial of service attack, data tampering, remote control,
+        man-in-the-middle attack</p>
+    </li>
+    <li>
+      <p><strong>PLC:</strong></p>
+      <p>a. Possible attackers: hackers, hacktivist groups, competitors</p>
+      <p>b. Attack methods: remote intrusion, firmware tampering, control command injection, denial of service attack,
+        malicious code injection</p>
+    </li>
+    <li>
+      <p><strong>HMI devices:</strong></p>
+      <p>a. Possible attackers: hackers, hacktivist groups, internal employees</p>
+      <p>b. Attack methods: user identity masquerading, command injection, data tampering, denial of service attack,
+        malicious code injection</p>
+    </li>
+    <li>
+      <p><strong>Database:</strong></p>
+      <p>a. Possible attackers: hackers, internal employees, competitors</p>
+      <p>b. Attack methods: unauthorised access, SQL injection, data leakage, data tampering, denial of service attacks
+      </p>
+    </li>
+    <li>
+      <p><strong>Servers:</strong></p>
+      <p>a. Possible attackers: hackers, hacker groups, internal employees</p>
+      <p>b. Attack methods: remote intrusion, OS vulnerability exploitation, malware infection, unauthorised access,
+        data tampering</p>
+    </li>
+  </ol>
+
+  <h2>Step7：Risk and Impact Analysis</h2>
+
+  <p>For an overview of all risks in STEP 6:</p>
+
+  <ul>
+    <li>Equipment Operating Errors: In-house staff can cause equipment failure or performance degradation due to
+      negligence, incorrect operation, or lack of training. This could lead to interruption of the water treatment
+      process, disruption of the water supply, or damage to the equipment.</li>
+    <li>Equipment Sabotage: Competitors or vandals may attempt to deliberately sabotage water treatment equipment to
+      disrupt the water treatment process, damage the company's reputation, or gain illegal benefits.</li>
+    <li>Physical Intrusion: Hackers, competitors, or vandals may attempt to physically intrude into the water treatment
+      equipment, such as gaining unauthorized access to the control room or equipment installation area, to carry out
+      malicious operations, equipment damage, or data tampering.</li>
+    <li>Malicious Operation: An internal employee, hacker, or competitor may maliciously operate the water treatment
+      equipment by altering equipment configuration, tampering with data, or interrupting normal operation.</li>
+    <li>Interruption of Operation: An internal employee, hacker, or competitor may attempt to interrupt the normal
+      operation of the water treatment equipment through a denial of service attack, disruption of power, or
+      interference with communications to affect the water treatment process or impair equipment functionality.</li>
+    <li>Network Intrusion: Hackers, hacker groups, or competitors may gain access to the pipeline system through network
+      penetration or vulnerability exploitation to gain unauthorized access, tamper with data, or control systems.</li>
+    <li>Denial of Service Attacks: Hackers, hacktivist groups, or competitors may launch denial of service attacks to
+      prevent normal pipe network system operation by overloading systems, consuming resources, or disrupting
+      communications.</li>
+    <li>Data Tampering: Hackers, internal staff, or competitors may attempt to tamper with data in the network system,
+      such as altering sensor readings, modifying control commands, or tampering with reports to affect the water
+      treatment process or mislead operators.</li>
+    <li>Remote Control: Hackers, hacker groups, or competitors may attempt to take remote control of the network system
+      to interfere with the water treatment process or cause faults by manipulating control commands or parameters.</li>
+    <li>Man-in-the-Middle Attacks: Hackers, hacktivist groups, or competitors may attempt to insert their own malicious
+      devices or hijack communications traffic in the pipe network system's communications to steal sensitive
+      information or tamper with data.</li>
+    <li>Unauthorized Access: Hackers, internal employees, or competitors may attempt to gain unauthorized access to
+      databases to obtain sensitive information, perform unauthorized operations, or tamper with data.</li>
+    <li>SQL Injection: A hacker or competitor may exploit a security vulnerability in a database application to obtain
+      sensitive information, tamper with data, or bypass access controls by injecting malicious SQL statements.</li>
+    <li>Data Leakage: Hackers, internal employees, or competitors may expose sensitive information in the database
+      through unauthorized access, data leakage, or misconfiguration.</li>
+    <li>Operating System Vulnerability Exploitation: Hackers, hacktivist groups, or competitors may exploit
+      vulnerabilities or unfixed software flaws in the operating system to gain unauthorized access, tamper with data,
+      or perform malicious operations.</li>
+    <li>Malware Infection: Hackers, hacker groups, or competitors may infect servers with malware, for example through
+      malicious files, email attachments, or malicious links, to gain unauthorized access, tamper with data, or perform
+      malicious operations.</li>
+  </ul>
+
+  <p>Attacks against water treatment equipment, pipeline systems, PLCs, HMI devices, databases, servers are very common
+    and, if successful, will cause even more damage to financial or other aspects.</p>
+
+  <p><b>Response to risk:</b></p>
+
+  <ol>
+    <li>Water treatment equipment:</li>
+    <p>Measure one, in order to counteract equipment operational errors: provide staff training and education, establish
+      operational standards and inspection procedures.</p>
+    <p>Measure two, to counter equipment tampering: implement physical security measures such as surveillance cameras,
+      access controls and guards.</p>
+    <p>Measure three, to counter physical intrusion: strengthen the physical security of equipment rooms, such as
+      locking doors and instalpng intrusion detection systems.</p>
+    <p>Measure four, to counter malicious operations: implement access control and rights management to restrict
+      employee access and operating rights to equipment.</p>
+    <p>Measure five, to counteract operational disruptions: establish back-up equipment and disaster recovery plans to
+      ensure rapid recovery in the event of equipment failure.</p>
+
+    <p>In order of difficulty of implementation, in descending order, the following are listed:</p>
+
+    <ul>
+      <li>Measure I</li>
+      <li>Measure IV</li>
+      <li>Measure II</li>
+      <li>Measure III</li>
+      <li>Measure V</li>
+    </ul>
+
+
+    <li>Pipe network system:</li>
+    <p>Measure one, in response to network intrusions: configure firewalls, intrusion detection systems and network
+      monitoring, and update and maintain system security patches.</p>
+    <p>Measure two, to counter denial of service attacks: implement traffic analysis and intrusion detection systems to
+      identify and block abnormal traffic.</p>
+    <p>Measure three, to counter data tampering: use encrypted communications and digital signatures to ensure data
+      integrity and authentication.</p>
+    <p>Measure four, to counter remote control: implement strong password policies, use secure remote access methods and
+      authentication measures.</p>
+    <p>Measure five, to counter man-in-the-middle attacks: use encrypted communications and authentication protocols to
+      ensure communication security and authentication.</p>
+
+    <p>In order of difficulty of implementation, from easy to difficult, the following are listed:</p>
+
+    <ul>
+      <li>Measure II</li>
+      <li>Measure V</li>
+      <li>Measure I</li>
+      <li>Measure III</li>
+      <li>Measure IV</li>
+    </ul>
+
+    <li>PLC:</li>
+    <p>Measure one. To counter remote intrusion: implement network isolation, access control and authentication
+      measures, and restrict remote access rights.</p>
+    <p>Measure two, to counter firmware tampering: regularly update and validate firmware, implement integrity checks
+      and digital signature verification.</p>
+    <p>Measure three, to counter control command injection: implement access control and authentication to ensure that
+      only authorised personnel can send control commands.</p>
+    <p>Measure four, to counter denial of service attacks: use intrusion detection systems and protection devices to
+      limit abnormal traffic and requests.</p>
+    <p>Measure five, to counter malicious code injection: implement secure development practices to ensure the security
+      and integrity of PLC programs.</p>
+
+    <p>In order of difficulty of implementation, from easy to difficult, the following are listed:</p>
+
+    <ul>
+      <li>Measure I</li>
+      <li>Measure III</li>
+      <li>Measure IV</li>
+      <li>Measure II</li>
+      <li>Measure V</li>
+    </ul>
+
+    <li>HMI devices:</li>
+    <p>Measure one, to counter user identity masquerading: use strong password policies and multi-factor authentication
+      to restrict user access.</p>
+    <p>Measure II, to counter command injection: filter and validate user input to prevent malicious command injection.
+    </p>
+    <p>Measure three, to counter data tampering: use encrypted communications and digital signatures to ensure data
+      integrity and authentication.</p>
+    <p>Measure four, to counter denial of service attacks: use intrusion detection systems and protection devices to
+      limit abnormal traffic and requests.</p>
+    <p>Measure five, to counter malicious code injection: implement secure development practices to ensure the security
+      and integrity of HMI programs.</p>
+
+    <p>In order of difficulty of implementation, from easy to difficult, the following are listed:</p>
+
+    <ul>
+      <li>Measure II</li>
+      <li>Measure I</li>
+      <li>Measure III</li>
+      <li>Measure IV</li>
+      <li>Measure V</li>
+    </ul>
+
+    <li>Database:</li>
+    <p>Measure I. To counter unauthorised access: implement access control and authentication and restrict user access
+      rights.</p>
+    <p>Measure two, to counteract SQL injection: filter and validate user input, use parameterised queries and stored
+      procedures.</p>
+    <p>Measure three, to counter data leakage: implement encryption measures, access auditing and monitoring to ensure
+      the confidentiality and security of data.</p>
+    <p>Measure four, to counter denial of service attacks: use intrusion detection systems and protection devices to
+      limit abnormal traffic and requests.</p>
+    <p>Measure five, to counter denial of service attacks: configure firewalls and intrusion detection systems to limit
+      abnormal traffic and requests.</p>
+
+    <p>In order of difficulty of implementation, from easy to difficult, the following are listed:</p>
+
+    <ul>
+      <li>Measure II</li>
+      <li>Measure I</li>
+      <li>Measure IV</li>
+      <li>Measure V</li>
+      <li>Measure III</li>
+    </ul>
+
+    <li>Server:</li>
+    <p>Measure one, to counter remote intrusion: implement strong password policies, authentication and secure remote
+      access protocols.</p>
+    <p>Measure two, to counter operating system vulnerability exploits: regularly update operating systems and software
+      and apply security patches in a timely manner.</p>
+    <p>Measure 3, to counter malware infections: implement endpoint security measures, anti-virus software and malware
+      detection.</p>
+    <p>Measure 4, to counter unauthorised access: implement access control and rights management to restrict user access
+      rights.</p>
+    <p>Measure 5, to counter data tampering: implement encryption measures, access auditing and monitoring to ensure
+      data integrity and security.</p>
+
+    <p>In order of ease of implementation, in descending order of difficulty, these are as follows:</p>
+
+    <ul>
+      <li>Measure I</li>
+      <li>Measure IV</li>
+      <li>Measure III</li>
+      <li>Measure V</li>
+      <li>Measure II</li>
+    </ul>
+  </ol>
+
+</body>
+
+</html>

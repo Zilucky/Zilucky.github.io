@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CVSS Scoring</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    h2, h2 {
+      color: #333;
+    }
+    ul {
+      list-style: decimal;
+      padding-left: 40px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    .navbar {
+      background-color: #1E90FF; /* Change the background color to a shade of blue */
+      overflow: hidden;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    }
+
+    .navbar a {
+      float: left;
+      color: #ffffff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      transition: background-color 0.3s, color 0.3s; /* Add smooth transition */
+    }
+
+    .navbar a:hover {
+      background-color: #6CA6CD; /* Darken the background color on hover */
+      color: #ffffff; /* Change the text color on hover */
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      flex-direction: column; 
+      margin-top: 50px; 
+      list-style-type: none; 
+      padding: 0; 
+    }
+
+    .dropdown:hover > .dropdown-content {
+      display: flex; 
+      flex-direction: column; 
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-content-sub {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 40px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      margin-top: 10px; 
+      margin-left: 170px; 
+      flex-direction: column; 
+      list-style-type: none; 
+      padding: 0; 
+    }
+
+    .dropdown-content li:hover > .dropdown-content-sub {
+      display: block; 
+    }
+  </style>
+</head>
+<body background="../img/watercolor-4116932_1920.png">
+  <div class="navbar">
+    <div class="dropdown">
+      <a href="../index.html" class="dropbtn">Risk Models in Cybersecurity</a>
+        <ul class="dropdown-content">
+          <li><a href="../attack/Phishing Attack.html">Phishing</a>
+            <ul class="dropdown-content-sub">
+              <li><a href="stride.html">STRIDE</a></li>
+              <li><a href="PASTA.html">PASTA</a></li>
+              <li><a href="Attack Tree.html">Attack Tree</a></li>
+              <li><a href="hTMM.html">hTMM</a></li>
+              <li><a href="CVSS.html">CVSS</a></li>
+              <li><a href="FAIR.html">FAIR</a></li>
+            </ul>
+          </li>
+          <li><a href="../attack/Ddos.html">DDos</a>
+            <ul class="dropdown-content-sub">
+              <li><a href="stride.html">STRIDE</a></li>
+              <li><a href="PASTA.html">PASTA</a></li>
+              <li><a href="Attack Tree.html">Attack Tree</a></li>
+              <li><a href="hTMM.html">hTMM</a></li>
+              <li><a href="CVSS.html">CVSS</a></li>
+              <li><a href="FAIR.html">FAIR</a></li>
+            </ul>
+          </li>
+          <li><a href="../attack/vulnerability attack.html">Vulnerability attack</a>
+            <ul class="dropdown-content-sub">
+              <li><a href="stride.html">STRIDE</a></li>
+              <li><a href="PASTA.html">PASTA</a></li>
+              <li><a href="Attack Tree.html">Attack Tree</a></li>
+              <li><a href="hTMM.html">hTMM</a></li>
+              <li><a href="CVSS.html">CVSS</a></li>
+              <li><a href="FAIR.html">FAIR</a></li>
+            </ul>
+          </li>
+          <li><a href="../attack/data breach.html">Data Leakage</a>
+            <ul class="dropdown-content-sub">
+              <li><a href="stride.html">STRIDE</a></li>
+              <li><a href="PASTA.html">PASTA</a></li>
+              <li><a href="Attack Tree.html">Attack Tree</a></li>
+              <li><a href="hTMM.html">hTMM</a></li>
+              <li><a href="CVSS.html">CVSS</a></li>
+              <li><a href="FAIR.html">FAIR</a></li>
+            </ul>
+          </li>
+          <li><a href="../attack/unauthorized access.html">Unauthorised access</a>
+            <ul class="dropdown-content-sub">
+              <li><a href="stride.html">STRIDE</a></li>
+              <li><a href="PASTA.html">PASTA</a></li>
+              <li><a href="Attack Tree.html">Attack Tree</a></li>
+              <li><a href="hTMM.html">hTMM</a></li>
+              <li><a href="CVSS.html">CVSS</a></li>
+              <li><a href="FAIR.html">FAIR</a></li>
+            </ul>
+          </li>
+          <li><a href="../attack/Escalation of rights.html">Privilege lifting</a>
+            <ul class="dropdown-content-sub">
+              <li><a href="stride.html">STRIDE</a></li>
+              <li><a href="PASTA.html">PASTA</a></li>
+              <li><a href="Attack Tree.html">Attack Tree</a></li>
+              <li><a href="hTMM.html">hTMM</a></li>
+              <li><a href="CVSS.html">CVSS</a></li>
+              <li><a href="FAIR.html">FAIR</a></li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+    </div>
+    <h1>CVSS</h1>
+  <h2>Step 1: Collection of Metrics Sets</h2>
+
+  <p>Base:</p>
+  <ol>
+    <li>Attack Vector (AV): [N,A,L,P], Network (N), Adjacent (A), Local (L), Physical (P)</li>
+    <li>Attack Complexity (AC): [L,H], Low (L), High (H)</li>
+    <li>Privileges Required (PR): [N,L,H], None (N), Low (L), High (H)</li>
+    <li>User Interaction (UI): [N,R], None (N), Required (R)</li>
+    <li>Scope (S): [U,C], Unchanged (U), Changed (C)</li>
+    <li>Confidentiality (C): [H,L,N], High (H), Low (L), None (N)</li>
+    <li>Integrity (I): [H,L,N], High (H), Low (L), None (N)</li>
+    <li>Availability (A): [H,L,N], High (H), Low (L), None (N)</li>
+  </ol>
+
+  <p>Temporal:</p>
+  <ol start="9">
+    <li>Exploit Code Maturity (E): [X,H,F,P,U], Not Defined (X), High (H), Functional (F), Proof-of-Concept (P), Unproven (U)</li>
+    <li>Remediation Level (RL): [X,U,W,T,O], Not Defined (X), Unavailable (U), Workaround (W), Temporary Fix (T), Official Fix (O)</li>
+    <li>Report Confidence (RC): [X,C,R,U], Not Defined (X), Confirmed (C), Reasonable (R), Unknown (U)</li>
+  </ol>
+
+  <p>Environmental:</p>
+  <ol start="12">
+    <li>Confidentiality Requirement (CR): [X,H,M,L], Not Defined (X), High (H), Medium (M), Low (L)</li>
+    <li>Integrity Requirement (IR): [X,H,M,L], Not Defined (X), High (H), Medium (M), Low (L)</li>
+    <li>Availability Requirement (AR): [X,H,M,L], Not Defined (X), High (H), Medium (M), Low (L)</li>
+    <li>Modified Attack Vector (MAV): [X,N,A,L,P], Not Defined (X), Network (N), Adjacent (A), Local (L), Physical (P)</li>
+    <li>Modified Attack Complexity (MAC): [X,L,H], Not Defined (X), Low (L), High (H)</li>
+    <li>Modified Privileges Required (MPR): [X,N,L,H], Not Defined (X), None (N), Low (L), High (H)</li>
+    <li>Modified User Interaction (MUI): [X,N,R], Not Defined (X), None (N), Required (R)</li>
+    <li>Modified Scope (MS): [X,U,C], Not Defined (X), Unchanged (U), Changed (C)</li>
+    <li>Modified Confidentiality (MC): [X,N,L,H], Not Defined (X), High (H), Low (L), None (N)</li>
+    <li>Modified Integrity (MI): [X,N,L,H], Not Defined (X), High (H), Low (L), None (N)</li>
+    <li>Modified Availability (MA): [X,N,L,H], Not Defined (X), High (H), Low (L), None (N)</li>
+  </ol>
+
+  <h2>Step 2: Set and Sort the Metrics</h2>
+
+  <img src="../img/2.png">
+  <p>Base:</p>
+  <ol>
+    <li>Attack Vector (AV)</li>
+    <li>Attack Complexity (AC)</li>
+    <li>Privileges Required (PR)</li>
+    <li>User Interaction (UI)</li>
+    <li>Scope (S)</li>
+    <li>Confidentiality (C)</li>
+    <li>Integrity (I)</li>
+    <li>Availability (A)</li>
+  </ol>
+  <p>Temporal:</p>
+  <ol start="9">
+    <li>Exploit Code Maturity (E)</li>
+    <li>Remediation Level (RL)</li>
+    <li>Report Confidence (RC)</li>
+  </ol>
+  <p>Environmental:</p>
+  <ol start="12">
+    <li>Confidentiality Requirement (CR)</li>
+    <li>Integrity Requirement (IR)</li>
+    <li>Availability Requirement (AR)</li>
+    <li>Modified Attack Vector (MAV)</li>
+    <li>Modified Attack Complexity (MAC)</li>
+    <li>Modified Privileges Required (MPR)</li>
+    <li>Modified User Interaction (MUI)</li>
+    <li>Modified Scope (MS)</li>
+    <li>Modified Confidentiality (MC)</li>
+    <li>Modified Integrity (MI)</li>
+    <li>Modified Availability (MA)</li>
+  </ol>
+
+  <h2>Step 3: Allocation of CVSS Metrics</h2>
+  <p>Base:</p>
+  <ol>
+    <li>Attack Vector (AV): Network (N)</li>
+    <li>Attack Complexity (AC): Low (L)</li>
+    <li>Privileges Required (PR): Low (L)</li>
+    <li>User Interaction (UI): Required (R)</li>
+    <li>Scope (S): Unchanged (U)</li>
+    <li>Confidentiality (C): Low (L)</li>
+    <li>Integrity (I): Low (L)</li>
+    <li>Availability (A): High (H)</li>
+  </ol>
+  <p>Temporal:</p>
+  <ol start="9">
+    <li>Exploit Code Maturity (E): Proof of Concept (P)</li>
+    <li>Remediation Level (RL): Temporary Fix (T)</li>
+    <li>Report Confidence (RC): Reasonable (R)</li>
+  </ol>
+  <p>Environmental:</p>
+  <ol start="12">
+    <li>Confidentiality Requirement (CR): Medium (M)</li>
+    <li>Integrity Requirement (IR): High (H)</li>
+    <li>Availability Requirement (AR): High (H)</li>
+    <li>Modified Attack Vector (MAV): Network (N)</li>
+    <li>Modified Attack Complexity (MAC): High (H)</li>
+    <li>Modified Privileges Required (MPR): Low (L)</li>
+    <li>Modified User Interaction (MUI): None (N)</li>
+    <li>Modified Scope (MS): Unchanged (U)</li>
+    <li>Modified Confidentiality (MC): Low (L)</li>
+    <li>Modified Integrity (MI): High (H)</li>
+    <li>Modified Availability (MA): High (H)</li>
+  </ol>
+
+  <h2>Step 4: Calculating CVSS Scores</h2>
+
+    <ol>
+    <li>Attack Vector (AV): Network (N) - 0.85</li>
+    <li>Attack Complexity (AC): Low (L) - 0.77</li>
+    <li>Privileges Required (PR): Low (L) - 0.62</li>
+    <li>User Interaction (UI): Required (R) - 0.62</li>
+    <li>Scope (S): Unchanged (U)</li>
+    <li>Confidentiality (C): Low (L) - 0.22</li>
+    <li>Integrity (I): Low (L) - 0.22</li>
+    <li>Availability (A): High (H) - 0.56</li>
+  </ol>
+  <p>Temporal:</p>
+  <ol start="9">
+    <li>Exploit Code Maturity (E): Proof of Concept (P) - 0.94</li>
+    <li>Remediation Level (RL): Temporary Fix (T) - 0.96</li>
+    <li>Report Confidence (RC): Reasonable (R) - 0.96</li>
+  </ol>
+  <p>Environmental:</p>
+  <ol start="12">
+    <li>Confidentiality Requirement (CR): Medium (M) - 1</li>
+    <li>Integrity Requirement (IR): High (H) - 1.5</li>
+    <li>Availability Requirement (AR): High (H) - 1.5</li>
+    <li>Modified Attack Vector (MAV): Network (N) - 0.85</li>
+    <li>Modified Attack Complexity (MAC): High (H) - 0.44</li>
+    <li>Modified Privileges Required (MPR): Low (L) - 0.62</li>
+    <li>Modified User Interaction (MUI): None (N) - 0.85</li>
+    <li>Modified Scope (MS): Unchanged (U)</li>
+    <li>Modified Confidentiality (MC): Low (L) - 0.22</li>
+    <li>Modified Integrity (MI): High (H) - 0.56</li>
+    <li>Modified Availability (MA): High (H) - 0.56</li>
+  </ol>
+
+  <h3>Base Metrics Equations</h3>
+  <p>Formula:</p>
+  <p>ISS = 1 - [ (1 - Confidentiality) × (1 - Integrity) × (1 - Availability) ]</p>
+  <p>Impact =</p>
+  <ul>
+    <li>If Scope is Unchanged: 6.42 × ISS</li>
+    <li>If Scope is Changed: 7.52 × (ISS - 0.029) - 3.25 × (ISS - 0.02)^15</li>
+  </ul>
+  <p>Exploitability = 8.22 × AttackVector × AttackComplexity × PrivilegesRequired × UserInteraction</p>
+  <p>BaseScore =</p>
+  <ul>
+    <li>If Impact ≤ 0: 0</li>
+    <li>If Scope is Unchanged: Roundup (Minimum [(Impact + Exploitability), 10])</li>
+    <li>If Scope is Changed: Roundup (Minimum [1.08 × (Impact + Exploitability), 10])</li>
+  </ul>
+  
+  <p>The Specific Scores are as follows:</p>
+  <p>ISS = 1 - [ (1 - 0.22) × (1 - 0.22) × (1 - 0.56) ] = 0.732304</p>
+  <p>Impact = Scope is Unchanged = 6.42 × ISS = 4.70139168</p>
+  <p>Exploitability = 8.22 × 0.85 × 0.77 × 0.62 × 0.62 = 2.06806816</p>
+  <p>BaseScore = Roundup (Minimum [(Impact + Exploitability), 10]) = Roundup(6.769) = 6.8</p>
+
+  <img src="../img/3.png">
+
+  <h3>Temporal Metrics Equations</h3>
+  <p>Formula:</p>
+  <p>TemporalScore =  Roundup (BaseScore × ExploitCodeMaturity × RemediationLevel × ReportConfidence)</p>
+  <p>The Specific Scores are as follows:</p>
+  <p>TemporalScore =  Roundup (6.8 × 0.94 × 0.96 × 0.96) = Roundup (5.89) = 5.9</p>
+
+  <img src="../img/4.png">
+  
+  <h3>Environmental Metrics Equations</h3>
+  <p>Formula:</p>
+  <p>MISS = Minimum ( 1 - [ (1 - ConfidentialityRequirement × ModifiedConfidentiality) × (1 - IntegrityRequirement × ModifiedIntegrity) × (1 - AvailabilityRequirement × ModifiedAvailability) ], 0.915)</p>
+
+  <p>ModifiedImpact = 
+  If ModifiedScope is Unchanged 6.42 × MISS
+  If ModifiedScope is Changed 7.52 × (MISS - 0.029) - 3.25 × (MISS × 0.9731 - 0.02)13
+  ModifiedExploitability =  8.22 × ModifiedAttackVector × ModifiedAttackComplexity × ModifiedPrivilegesRequired × ModifiedUserInteraction
+  </p>
+
+  <p>ModifiedImpact = 
+  If ModifiedScope is Unchanged 6.42 × MISS
+  If ModifiedScope is Changed 7.52 × (MISS - 0.029) - 3.25 × (MISS × 0.9731 - 0.02)13
+  ModifiedExploitability =  8.22 × ModifiedAttackVector × ModifiedAttackComplexity × ModifiedPrivilegesRequired × ModifiedUserInteraction
+  </p>
+  <p>The Specific Scores are as follows:</p>
+
+  <p>MISS = Minimum ( 1 - [ (1 - 1 ×0.22 ) × (1 - 1.5 × 0.56 ) × (1 - 1.5 × 0.56 ) ], 0.915) = Minimum (  1 - 0.019968, 0.915 ) = Minimum (  0.980032, 0.915 ) = 0.915
+ModifiedImpact = 6.42 × MISS =5.8743
+ModifiedExploitability = 8.22 × 0.85 × 0.44 × 0.62 × 0.85 = 1.62014556
+EnvironmentalScore  = Roundup ( Roundup [Minimum ([5.8743 + 1.62014556], 10) ] × 0.94 × 0.96 × 0.96 ) = Roundup (7.5 × 0.94 × 0.96 × 0.96) = 6.5 
+</p>
+
+<img src="../img/5.png">
+</body>
+</html>
