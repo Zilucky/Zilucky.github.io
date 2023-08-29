@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>privilege lifting attacks</title>
+  <style>
+    .short-box {
+      display: block;
+      margin-right: 20px;
+      background-image: linear-gradient(0deg, #fff, #f3f5f8);
+      border: 2px solid #fff;
+      box-shadow: 8px 8px 20px 0 rgba(55, 99, 170, .1);
+      border-radius: 4px;
+      box-sizing: border-box;
+      -ms-flex: 1;
+      flex: 1;
+      width: 1px;
+      max-width: none;
+      height: auto;
+      padding: 18px;
+      transition: all .3s linear;
+      position: relative;
+      pointer-events: auto;
+    }
+
+    .navbar {
+      background-color: #1E90FF;
+      overflow: hidden;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      float: left;
+      color: #ffffff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      transition: background-color 0.3s, color 0.3s;
+      /* Add smooth transition */
+    }
+
+    .navbar a:hover {
+      background-color: #6CA6CD;
+      /* Darken the background color on hover */
+      color: #ffffff;
+      /* Change the text color on hover */
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      flex-direction: column;
+      margin-top: 50px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown:hover>.dropdown-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-content-sub {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 40px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      margin-top: 10px;
+      margin-left: 170px;
+      flex-direction: column;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dropdown-content li:hover>.dropdown-content-sub {
+      display: block;
+    }
+
+    .tpm-solution2__nav-title {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 26px;
+      color: #000;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tpm-solution2__nav-desc {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 22px;
+      color: #4b5b76;
+      opacity: .8;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      max-height: 44px;
+    }
+
+    .centered-container {
+      position: absolute;
+      height: 50px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      max-width: 1200px;
+      padding: 20px;
+    }
+
+    .text {
+      position: absolute;
+      top: 40%;
+      /* left: 10%; */
+      transform: translateY(-50%);
+      padding: 20px;
+
+    }
+
+    .image {
+      /* max-width: 200%; */
+      /* height: auto; */
+      display: block;
+      top: 0;
+      left: 0;
+      /* opacity: 0.6; */
+      /* text-align: center; */
+    }
+
+    img {
+      max-width: 120%;
+      height: auto;
+      display: block;
+    }
+
+    .icon {
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            max-width: 10%;
+        }
+
+    .green-box {
+    background-color: #E6E6FA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+  }
+
+    .white-text {
+      color: #DDA0DD;
+      font-size: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="dropdown">
+      <a href="../index.html" class="dropbtn">Risk Models in Cybersecurity</a>
+      <ul class="dropdown-content">
+        <li><a href="Phishing Attack.html">Phishing</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="../threat/stride.html">STRIDE</a></li>
+            <li><a href="../threat/PASTA.html">PASTA</a></li>
+            <li><a href="../threat/Attack Tree.html">Attack Tree</a></li>
+            <li><a href="../threat/hTMM.html">hTMM</a></li>
+            <li><a href="../threat/CVSS.html">CVSS</a></li>
+            <li><a href="../threat/FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="Ddos.html">DDos</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="../threat/stride.html">STRIDE</a></li>
+            <li><a href="../threat/PASTA.html">PASTA</a></li>
+            <li><a href="../threat/Attack Tree.html">Attack Tree</a></li>
+            <li><a href="../threat/hTMM.html">hTMM</a></li>
+            <li><a href="../threat/CVSS.html">CVSS</a></li>
+            <li><a href="../threat/FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="vulnerability attack.html">Vulnerability attack</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="../threat/stride.html">STRIDE</a></li>
+            <li><a href="../threat/PASTA.html">PASTA</a></li>
+            <li><a href="../threat/Attack Tree.html">Attack Tree</a></li>
+            <li><a href="../threat/hTMM.html">hTMM</a></li>
+            <li><a href="../threat/CVSS.html">CVSS</a></li>
+            <li><a href="../threat/FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="data breach.html">Data Leakage</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="../threat/stride.html">STRIDE</a></li>
+            <li><a href="../threat/PASTA.html">PASTA</a></li>
+            <li><a href="../threat/Attack Tree.html">Attack Tree</a></li>
+            <li><a href="../threat/hTMM.html">hTMM</a></li>
+            <li><a href="../threat/CVSS.html">CVSS</a></li>
+            <li><a href="../threat/FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="unauthorized access.html">Unauthorised access</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="../threat/stride.html">STRIDE</a></li>
+            <li><a href="../threat/PASTA.html">PASTA</a></li>
+            <li><a href="../threat/Attack Tree.html">Attack Tree</a></li>
+            <li><a href="../threat/hTMM.html">hTMM</a></li>
+            <li><a href="../threat/CVSS.html">CVSS</a></li>
+            <li><a href="../threat/FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+        <li><a href="lifting of rights.html">Privilege lifting</a>
+          <ul class="dropdown-content-sub">
+            <li><a href="../threat/stride.html">STRIDE</a></li>
+            <li><a href="../threat/PASTA.html">PASTA</a></li>
+            <li><a href="../threat/Attack Tree.html">Attack Tree</a></li>
+            <li><a href="../threat/hTMM.html">hTMM</a></li>
+            <li><a href="../threat/CVSS.html">CVSS</a></li>
+            <li><a href="../threat/FAIR.html">FAIR</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="green-box">
+    <p class="white-text">Privilege lifting</p>
+  </div>
+
+  <!-- <div class="container">
+    <div class="text">
+      <h1>Privilege lifting</h1>
+    </div>
+    <div class="image">
+      <img src="../img/security-7057562_1920.jpg" alt="Placeholder Image">
+    </div>
+  </div> -->
+
+  <div style="background-image: url('../img/watercolor-4116932_1920.png');padding: 20px;">
+
+    <h2>Introduction to privilege lifting attacks</h2>
+    <p>A privilege lifting attack is the process by which an attacker attempts to gain a higher level of authority or
+      privilege than their current authority. </p>
+
+    <h3>Reason for privilege lifting attack:</h3>
+    <ul>
+      <li>Vulnerability Exploitation: An attacker may exploit a vulnerability in a system or application to gain privilege lifting.</li>
+      <li>Privilege lifting: An attacker may exploit the privilege lifting capabilities of an operating system or application to elevate privileges.</li>
+      <li>Password Cracking: Attackers may attempt to guess or brute force passwords to gain higher privileges.</li>
+      <li>Social engineering attacks: Attackers may gain privilege lifting through deception and misleading.</li>
+      <li>Malware: Malware may be used by attackers to gain administrator privileges.</li>
+    </ul>
+
+    <h3>Hazard of privilege lifting attack:</h3>
+    <p>Privilege lifting attacks may lead to the following hazards:</p>
+    <ul>
+      <li>Unauthorised access: An attacker may gain access to restricted resources and sensitive information.</li>
+      <li>Data Tampering: Attackers may tamper with data or plant malicious code.</li>
+      <li>System crash: A privilege lifting attack may cause system crash or service interruption.</li>
+      <li>Compliance violations: Elevation of privilege attacks may violate legal regulations and regulatory requirements.</li>
+      <li>Loss of trust: Elevation of privilege attacks can damage user and customer trust.</li>
+    </ul>
+
+    <h3>Methods to prevent privilege lifting attacks:</h3>
+    <ul>
+      <li>Regular update: update the system and applications in time, and fix known vulnerabilities.</li>
+      <li>Principle of Least Privilege: Give users the least necessary privileges.</li>
+      <li>Access Control: Correctly configure access control to limit user rights.</li>
+      <li>Strong Passwords: Secure accounts and systems with strong passwords and multi-factor authentication.</li>
+      <li>Network security: set up firewalls and intrusion detection systems to block privilege lifting attacks.
+      </li>
+    </ul>
+
+  </div>
+
+
+  <div class="centered-container">
+    <h3>
+      RISK METHOD
+    </h3>
+  </div>
+
+  <div style="display: flex;
+        flex-wrap: wrap;
+        justify-content: center;margin-top: 70px;">
+
+
+    <div class="short-box" onclick="window.location='../threat/stride.html'">
+      <div class="icon">
+        <img src="../img/images.png" alt="">
+      </div>
+      <h3 class="tpm-solution2__nav-title">
+        <div style=" text-decoration: none;color: #000;">STRIDE</div>
+      </h3>
+      <h3 class="tpm-solution2__nav-desc">
+        Identify system entities, events, and system.
+      </h3>
+    </div>
+
+    <div class="short-box" onclick="window.location='../threat/PASTA.html'">
+      <div class="icon">
+        <img src="../img/images.png" alt="">
+      </div>
+      <h3 class="tpm-solution2__nav-title">
+        <div style=" text-decoration: none;color: #000;">PASTA</div>
+      </h3>
+      <h3 class="tpm-solution2__nav-desc">
+        A risk-centric framework.
+      </h3>
+    </div>
+
+    <div class="short-box" onclick="window.location='../threat/Attack Tree.html'">
+      <h3 class="tpm-solution2__nav-title">
+        <div style=" text-decoration: none;color: #000;">Attack Tree</div>
+      </h3>
+      <h3 class="tpm-solution2__nav-desc">
+        Diagrams that depict attacks on a system in tree.
+      </h3>
+    </div>
+
+    <div class="short-box" onclick="window.location='../threat/hTMM.html'">
+      <h3 class="tpm-solution2__nav-title">
+        <div style=" text-decoration: none;color: #000;">hTMM</div>
+      </h3>
+      <h3 class="tpm-solution2__nav-desc">
+        Include no false positives, no overlooked threats.
+      </h3>
+    </div>
+
+    <div class="short-box" onclick="window.location='../threat/CVSS.html'">
+      <h3 class="tpm-solution2__nav-title">
+        <div style=" text-decoration: none;color: #000;">CVSS</div>
+      </h3>
+      <h3 class="tpm-solution2__nav-desc">
+        Standardized scoring system.
+      </h3>
+    </div>
+
+    <div class="short-box" onclick="window.location='../threat/FAIR.html'">
+      <h3 class="tpm-solution2__nav-title">
+        <div style=" text-decoration: none;color: #000;">FAIR</div>
+      </h3>
+      <h3 class="tpm-solution2__nav-desc">
+        Emerged as the premier Value at Risk model.
+      </h3>
+    </div>
+  </div>
+
+</body>
+
+</html>
