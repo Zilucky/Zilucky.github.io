@@ -201,7 +201,7 @@
     impact level is very high, the expected loss of several billion.</p>
 
   <p>Loss Event Frequency = Threat Event Frequency * Vulnerability = (Contact Frequency * probability of Action) +
-    (Threat Capability * Resistance strength)</p>
+    (Threat Capability * Resistance strength)<sup>[1]</sup></p>
   <p>For Web servers:</p>
   <p>Loss Event Frequency = Threat Event Frequency * Vulnerability = (100 times * 30%) times * (35% * 70%) = 7.35 times
   </p>
@@ -233,7 +233,7 @@
 
   <h2>Step3: Evaluate probable Loss Magnitude (PLM)</h2>
   <p>Loss Magnitude = Primary Loss * Secondary Loss = Primary Loss + (Secondary Loss Event Frequency * Secondary Loss
-    Magnitude)</p>
+    Magnitude)<sup>[1]</sup></p>
   <p>For web servers:</p>
   <p>Loss Magnitude = Primary Loss + Secondary Loss = Primary Loss + (Probability of Secondary Loss * Magnitude of
     Secondary Loss) = 1000w + (25% * 300w) = 1075w </p>
@@ -249,7 +249,7 @@
   <p>PLM: Severe</p>
 
   <h2>Step4: Derive and Articulate Risk</h2>
-  <p>Risk = Loss Event Frequency * Loss Magnitude</p>
+  <p>Risk = Loss Event Frequency * Loss Magnitude<sup>[1]</sup></p>
   <p>For Web Server:</p>
   <p>Final Loss = Loss Event Probability * Loss Magnitude = 7901.25w</p>
   <p>Risk: Critical ( Servere PLM and High LEF )</p>
@@ -260,6 +260,10 @@
   <p>For databases:</p>
   <p>Final loss = probability of loss event * magnitude of loss = 384000w</p>
   <p>Risk: Critical ( Servere PLM and High LEF )</p>
+
+  <p>
+  [1] Étienne, A. (2017). La quantification du risque cybersécurité. Risk Insight Wavestone. https://www.riskinsight-wavestone.com/2020/06/la-quantification-du-risque-cybersecurite/.
+  </p>
 
 </body>
 
