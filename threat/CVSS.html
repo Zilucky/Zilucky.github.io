@@ -295,14 +295,14 @@
 
   <h3>Base Metrics Equations</h3>
   <p>Formula:</p>
-  <p>ISS = 1 - [ (1 - Confidentiality) × (1 - Integrity) × (1 - Availability) ]<sup>[1]</sup></p>
-  <p>Impact<sup>[1]</sup> =</p>
+  <p>ISS = 1 - [ (1 - Confidentiality) × (1 - Integrity) × (1 - Availability) ]<a href="#ref"><sup>[1]</sup></a></p>
+  <p>Impact<a href="#ref"><sup>[1]</sup></a> =</p>
   <ul>
     <li>If Scope is Unchanged: 6.42 × ISS</li>
     <li>If Scope is Changed: 7.52 × (ISS - 0.029) - 3.25 × (ISS - 0.02)^15</li>
   </ul>
   <p>Exploitability = 8.22 × AttackVector × AttackComplexity × PrivilegesRequired × UserInteraction</p>
-  <p>BaseScore<sup>[1]</sup> =</p>
+  <p>BaseScore<a href="#ref"><sup>[1]</sup></a> =</p>
   <ul>
     <li>If Impact ≤ 0: 0</li>
     <li>If Scope is Unchanged: Roundup (Minimum [(Impact + Exploitability), 10])</li>
@@ -327,18 +327,18 @@
   
   <h3>Environmental Metrics Equations</h3>
   <p>Formula:</p>
-  <p>MISS = Minimum ( 1 - [ (1 - ConfidentialityRequirement × ModifiedConfidentiality) × (1 - IntegrityRequirement × ModifiedIntegrity) × (1 - AvailabilityRequirement × ModifiedAvailability) ], 0.915)<sup>[1]</sup></p>
+  <p>MISS = Minimum ( 1 - [ (1 - ConfidentialityRequirement × ModifiedConfidentiality) × (1 - IntegrityRequirement × ModifiedIntegrity) × (1 - AvailabilityRequirement × ModifiedAvailability) ], 0.915)<a href="#ref"><sup>[1]</sup></a></p>
 
   <p>ModifiedImpact = 
   If ModifiedScope is Unchanged 6.42 × MISS
   If ModifiedScope is Changed 7.52 × (MISS - 0.029) - 3.25 × (MISS × 0.9731 - 0.02)13
-  ModifiedExploitability =  8.22 × ModifiedAttackVector × ModifiedAttackComplexity × ModifiedPrivilegesRequired × ModifiedUserInteraction<sup>[1]</sup>
+  ModifiedExploitability =  8.22 × ModifiedAttackVector × ModifiedAttackComplexity × ModifiedPrivilegesRequired × ModifiedUserInteraction<a href="#ref"><sup>[1]</sup></a>
   </p>
 
   <p>ModifiedImpact = 
   If ModifiedScope is Unchanged 6.42 × MISS
   If ModifiedScope is Changed 7.52 × (MISS - 0.029) - 3.25 × (MISS × 0.9731 - 0.02)13
-  ModifiedExploitability =  8.22 × ModifiedAttackVector × ModifiedAttackComplexity × ModifiedPrivilegesRequired × ModifiedUserInteraction<sup>[1]</sup>
+  ModifiedExploitability =  8.22 × ModifiedAttackVector × ModifiedAttackComplexity × ModifiedPrivilegesRequired × ModifiedUserInteraction<a href="#ref"><sup>[1]</sup></a>
   </p>
   <p>The Specific Scores are as follows:</p>
 
@@ -350,7 +350,7 @@ EnvironmentalScore  = Roundup ( Roundup [Minimum ([5.8743 + 1.62014556], 10) ] �
 
 <img src="../img/5.png">
 
-<p>
+<p id="ref">
   [1] CVSS v3.1 specification document, Adam Maris et al. 2015. Retrieved from http://www.first.org/cvss/v3.1/specification-document.
 </p>
 </body>
